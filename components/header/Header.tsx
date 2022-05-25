@@ -1,6 +1,8 @@
 import Link from "next/link";
 import styled, { css, keyframes } from "styled-components";
 
+//TODO: check media query
+
 const HeaderWrapper = styled.nav`
   position: fixed;
   width: 100%;
@@ -52,41 +54,55 @@ const NavItem = styled.li`
     }
   }
 `;
+const Logo = styled.img`
+  width: 181px;
+  height: 60px;
+`;
+
+const Actions = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  & > img {
+    margin-right: 72px;
+  }
+`;
 
 const LoginButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 159px;
-  height: 48px;
-  color: #fff !important;
-  background: #3aa325;
-  border-radius: 8px;
-  padding: 12px 20px;
-  margin-left: auto;
-  cursor: pointer;
-  transition: 0.3s ease-in-out background;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
+  width: 25px;
+  height: 56px;
+  margin-right: 36px;
   img {
-    width: 17px;
-    height: 17px;
-    margin-left: 10px;
-  }
-  &:hover {
-    background: linear-gradient(
-        0deg,
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.1)
-      ),
-      #3aa325 !important;
+    width: 22px;
+    height: 27px;
   }
 `;
-const Logo = styled.img`
-  width: 181px;
-  height: 60px;
+
+const BasketButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 146px;
+  height: 56px;
+  color: #000;
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px 12px;
+  font-size: 20px;
+  font-weight: bold;
+  /* transition: 0.3s ease-in-out background; */
+  span {
+    margin-top: 6px;
+  }
+  img {
+    width: 26px;
+    height: 27px;
+    margin-right: 12px;
+  }
 `;
 
 const Header: React.FC = (props) => {
@@ -115,12 +131,20 @@ const Header: React.FC = (props) => {
             </NavItem>
           </LargeNavigation>
 
-          <Link href="/registerAndLogin">
-            <LoginButton>
-              <img src={`/images/landing/login.svg`} alt="Porta Persa" />
-              ورود | ثبت نام
-            </LoginButton>
-          </Link>
+          <Actions>
+            <img src={`/images/common/flag.svg`} alt="Porta Persa" />
+
+            <Link href="/registerAndLogin">
+              <LoginButton className="btn">
+                <img src={`/images/common/user.svg`} alt="Porta Persa" />
+              </LoginButton>
+            </Link>
+
+            <BasketButton className="btn">
+              <img src={`/images/common/basket.svg`} alt="Porta Persa" />
+              <span>799.99 $</span>
+            </BasketButton>
+          </Actions>
 
           {/* <div className={styles.burgerBar} onClick={openNav}>
             <img src="/images/landing/burger.svg" alt="x" />
