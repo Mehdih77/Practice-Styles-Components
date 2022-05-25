@@ -6,6 +6,7 @@ import styled, { css, keyframes } from "styled-components";
 const HeaderWrapper = styled.nav`
   position: fixed;
   width: 100%;
+  background-color: #f5f5f5;
   /* background: rgba(241, 241, 241, 0.5); */
   /* backdrop-filter: blur(16px); */
   z-index: 9999;
